@@ -1,0 +1,945 @@
+<!doctype html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Rubén Tineo | Mentoring y desarrollo humano</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#ccf05f",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "surface-bright": "#38393a",
+                    "on-primary": "#283500",
+                    "surface-container": "#1e2020",
+                    "inverse-primary": "#506600",
+                    "on-secondary": "#3c2f00",
+                    "on-surface-variant": "#c5c9b1",
+                    "on-secondary-fixed": "#241a00",
+                    "outline-variant": "#454937",
+                    "surface-container-highest": "#333535",
+                    "surface": "#121414",
+                    "primary": "#bfe353",
+                    "on-primary-container": "#3e5000",
+                    "tertiary-container": "#bbb9b8",
+                    "secondary-container": "#af8d11",
+                    "primary-fixed-dim": "#b1d446",
+                    "on-surface": "#e2e2e2",
+                    "surface-container-low": "#1a1c1c",
+                    "on-background": "#e2e2e2",
+                    "primary-container": "#a4c639",
+                    "surface-container-lowest": "#0c0f0f",
+                    "surface-dim": "#121414",
+                    "background": "#121414",
+                    "on-tertiary-container": "#4a4949",
+                    "surface-container-high": "#282a2b",
+                    "surface-variant": "#333535",
+                    "surface-tint": "#b1d446",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "on-primary-fixed": "#161e00",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-primary-fixed-variant": "#3c4d00",
+                    "inverse-on-surface": "#2f3131",
+                    "on-tertiary": "#313030",
+                    "secondary-fixed": "#ffe088",
+                    "on-secondary-container": "#342800",
+                    "inverse-surface": "#e2e2e2",
+                    "outline": "#8f937d",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-tertiary-fixed-variant": "#474646",
+                    "secondary": "#e9c349",
+                    "on-error-container": "#ffdad6",
+                    "tertiary": "#d7d4d4",
+                    "tertiary-fixed": "#e5e2e1",
+                    "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "stack-md": "24px",
+                    "unit": "8px",
+                    "container-max": "1200px",
+                    "stack-sm": "12px",
+                    "stack-lg": "48px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Anybody"],
+                    "display-xl": ["Anybody"],
+                    "headline-lg": ["Anybody"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "label-mono": ["JetBrains Mono"],
+                    "body-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-mono": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-glass {
+            background: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(42, 42, 42, 0.5);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(164, 198, 57, 0.1);
+        }
+        .card-surface {
+            background-color: #1E1E1E;
+            border: 1px solid #2A2A2A;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #mobile-menu.closed {
+            transform: translateX(100%);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary selection:text-on-primary-container" style="background-color: #121414; color: #e2e2e2;">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20 shadow-md transition-transform duration-300">
+<div class="flex justify-between items-center px-margin-mobile md:px-gutter py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="psychology">psychology</span>
+<h1 class="font-bold text-xl text-on-surface dark:text-on-surface tracking-tighter uppercase">Rubén Tineo</h1>
+</div>
+
+<!-- Desktop Nav -->
+<nav class="hidden lg:flex items-center gap-8">
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors" href="#sobre-mi">Sobre mí</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors" href="#servicios">Servicios</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors" href="#modelo">Modelo</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors" href="#espacios">Espacios</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary transition-colors" href="#contacto">Contacto</a>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-mono text-label-mono font-bold active:scale-95 transition-all">AGENDAR</button>
+</nav>
+<!-- Mobile Menu Button -->
+<div class="lg:hidden flex items-center gap-4">
+<button class="bg-primary-container text-on-primary-container px-4 py-1.5 rounded-full font-label-mono text-xs font-bold active:scale-95 transition-all">AGENDAR</button>
+<button class="text-on-surface p-1" id="menu-btn">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Mobile Navigation Drawer -->
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] hidden" id="mobile-menu-overlay"></div>
+<aside class="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-surface z-[70] closed shadow-2xl border-l border-outline-variant/20 p-margin-mobile" id="mobile-menu">
+<div class="flex justify-between items-center mb-10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">psychology</span>
+<span class="font-headline-md text-lg tracking-tighter uppercase">Rubén Tineo</span>
+</div>
+<button class="text-on-surface-variant" id="close-btn">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-6">
+<a class="font-headline-md text-2xl hover:text-primary transition-colors py-2 border-b border-outline-variant/10" href="#sobre-mi">Sobre mí</a>
+<a class="font-headline-md text-2xl hover:text-primary transition-colors py-2 border-b border-outline-variant/10" href="#servicios">Servicios</a>
+<a class="font-headline-md text-2xl hover:text-primary transition-colors py-2 border-b border-outline-variant/10" href="#modelo">Modelo</a>
+<a class="font-headline-md text-2xl hover:text-primary transition-colors py-2 border-b border-outline-variant/10" href="#espacios">Espacios</a>
+<a class="font-headline-md text-2xl hover:text-primary transition-colors py-2 border-b border-outline-variant/10" href="#contacto">Contacto</a>
+<div class="mt-10">
+<button class="bg-primary text-on-primary w-full py-4 rounded-xl font-headline-md text-lg shadow-lg active:scale-95 transition-transform">
+                AGENDAR CITA
+            </button>
+</div>
+</nav>
+</aside>
+<main class="pt-20">
+  
+<!-- Hero Section -->
+<section class="relative min-h-[795px] flex flex-col items-center justify-center text-center px-margin-mobile overflow-hidden" id="sobre-mi">
+<div class="absolute inset-0 z-0 opacity-40">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background"></div>
+<div class="absolute inset-0 bg-black/70 pointer-events-none"></div>
+<img class="w-full h-full object-cover opacity-40" data-alt="A cinematic, high-contrast atmospheric background featuring a complex golden clock mechanism and celestial maps blending into an obsidian dark void. Ethereal lighting creates a sense of profound wisdom and timeless psychological exploration, perfectly aligning with a high-performance wellness brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLPGvyYAYnr-5-MAkU7rVc8UPWNIb68DvbqiiM7cYF9NWacBg5xghwH0X_Vd2mGdbdGfyYWeUOsN1pY_H3xma3PIb3wf9BvAczWNjXe8Ru13ivRKy0Dj4jyv5E4q777MKGRENSjaRVuGtsk-KqyWIm8vTg-eQuy-NJc5zQh3jET_cxEVG0HMUWEWQgRdMLPlONSziG_26HVLfJmpdB2iV-MecHUkGEADzP4dmw5-y-tXL8TRmtsJba" loading="eager" decoding="async">
+</div>
+<div class="relative z-10 max-w-2xl mx-auto space-y-stack-md">
+<div class="flex flex-col items-center space-y-2">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-lg text-headline-lg tracking-tight">Rubén Tineo</h2>
+<span class="material-symbols-outlined text-primary-fixed text-3xl" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
+</div>
+<p class="font-label-mono text-label-mono tracking-[0.2em] text-on-surface-variant uppercase">PERÚ / LIMA</p>
+</div>
+<div class="space-y-stack-sm">
+<p class="font-body-lg text-body-lg text-secondary-fixed">Online - Presencial</p>
+<h3 class="font-headline-lg text-headline-md text-on-surface/90">GRATIS / PROGRAMAR</h3>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-base hover:shadow-[0_0_30px_rgba(191,227,83,0.3)] transition-all active:scale-95">
+    Empezar ahora
+</button>
+</div>
+<div class="card-surface p-8 rounded-xl max-w-xl mx-auto backdrop-blur-md bg-opacity-60 text-left border-l-4 border-l-primary">
+<p class="font-body-md text-body-md leading-relaxed text-on-surface-variant">
+
+Hay momentos en los que sabes que necesitas un cambio, pero todo se siente confuso.
+    <br><br>
+Te acompaño a soltar las dudas, confiar en tu criterio y construir un día a día donde te sientas en paz y bajo tu propio control.
+<!-- Te acompaño a despejar la duda, confiar en tu criterio y construir un día a día donde te sientas en paz y bajo tu propio control. -->
+                    </p>
+</div>
+</div>
+</section>
+
+<!-- Section 1: Hero -->
+<section class="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden">
+  <!-- Fondo decorativo / Glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-96 bg-primary-container/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
+  <div class="max-w-4xl mx-auto px-6 md:px-gutter flex flex-col items-center text-center space-y-10 relative z-10">
+    
+    <!-- Bloque de Texto -->
+    <div class="space-y-6 flex flex-col items-center">
+      
+      <!-- Badge de Ubicación/Modalidad -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 bg-surface-container-high/80 backdrop-blur-md rounded-full border border-white/10 shadow-sm transition-all hover:border-white/20">
+        <span class="w-2.5 h-2.5 rounded-full bg-primary-container animate-pulse"></span>
+        <span class="font-label-caps text-xs md:text-sm tracking-wider uppercase text-on-surface-variant font-semibold">
+          Online &amp; Presencial
+        </span>
+      </div>
+
+      <!-- Título Principal -->
+      <h1 class="font-display-lg text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-white max-w-3xl">
+        Desarrolla la mejor <span class="gradient-text bg-clip-text text-transparent bg-gradient-to-r from-primary-container to-emerald-400">versión de tu vida</span>
+      </h1>
+
+      <!-- Bajada / Subtítulo (Cambiado a blanco) -->
+      <p class="font-body-lg text-base sm:text-lg md:text-xl text-white/95 max-w-2xl leading-relaxed">
+        Me especializo en el valor y potencial del ser humano. Te acompañaré en cada paso del proceso para construir una vida con más sentido, autenticidad y equilibrio.
+      </p>
+
+    </div>
+
+    <!-- Bloque de Imagen / Tarjeta de Perfil -->
+    <div class="relative group w-full max-w-md pt-4">
+      <div class="absolute inset-0 bg-primary-container/20 rounded-3xl blur-2xl -z-10 group-hover:bg-primary-container/30 transition-all duration-700"></div>
+      
+      <div class="rounded-3xl overflow-hidden glass-card border border-white/10 shadow-2xl relative">
+        <img alt="Rubén Tineo Professional Portrait" class="w-full h-auto object-cover filter contrast-[1.05] grayscale-[0.1] group-hover:scale-105 transition-transform duration-500 ease-out" src="/PERFIL-PRO-2.7.png">
+        
+        <!-- Degradado y Texto sobre la imagen -->
+        <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 bg-gradient-to-t from-background via-background/80 to-transparent text-center">
+          <h3 class="font-headline-lg text-2xl sm:text-3xl font-bold text-white tracking-wide">
+            Rubén Tineo
+          </h3>
+          <p class="text-primary-container font-medium text-sm sm:text-base mt-1">
+            Especialista en Mentoring  &amp; Desarrollo Humano
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Sección Equipo Multidisciplinario -->
+<section class="py-stack-lg px-margin-mobile relative">
+  <div class="max-w-container-max mx-auto space-y-stack-md">
+    
+    <!-- Encabezado de la Sección -->
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-primary/10 rounded-full border border-primary/20">
+        <span class="material-symbols-outlined text-primary text-sm">groups</span>
+        <span class="text-xs uppercase tracking-wider font-semibold text-primary">Respaldo Integral</span>
+      </div>
+      <h3 class="font-headline-lg text-2xl md:text-3xl font-bold text-white tracking-tight">
+        Además, contamos con un equipo multidisciplinario especializado en:
+      </h3>
+    </div>
+
+    <!-- Grid de Especialidades -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-4">
+      
+      <!-- 1. Psicología -->
+      <div class="card-surface p-5 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 group flex items-start gap-4">
+        <div class="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors shrink-0">
+          <span class="material-symbols-outlined text-2xl block">psychology</span>
+        </div>
+        <div class="space-y-1">
+          <h4 class="font-headline-md text-base font-bold text-white">Psicología</h4>
+          <p class="font-body-md text-sm text-on-surface-variant">Clínica, Organizacional y Educativa.</p>
+        </div>
+      </div>
+
+      <!-- 2. Psicoterapia -->
+      <div class="card-surface p-5 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 group flex items-start gap-4">
+        <div class="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors shrink-0">
+          <span class="material-symbols-outlined text-2xl block">clinical_notes</span>
+        </div>
+        <div class="space-y-1">
+          <h4 class="font-headline-md text-base font-bold text-white">Psicoterapia</h4>
+          <p class="font-body-md text-sm text-on-surface-variant">Terapia Cognitivo-Conductual (TCC).</p>
+        </div>
+      </div>
+
+      <!-- 3. Neuropsicología -->
+      <div class="card-surface p-5 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 group flex items-start gap-4">
+        <div class="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors shrink-0">
+          <span class="material-symbols-outlined text-2xl block">memory</span>
+        </div>
+        <div class="space-y-1">
+          <h4 class="font-headline-md text-base font-bold text-white">Neuropsicología</h4>
+          <p class="font-body-md text-sm text-on-surface-variant">Evaluación e Intervención Neuropsicológica.</p>
+        </div>
+      </div>
+
+      <!-- 4. Análisis del Comportamiento y Mentoring -->
+      <div class="card-surface p-5 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 group flex items-start gap-4">
+        <div class="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors shrink-0">
+          <span class="material-symbols-outlined text-2xl block">person_play</span>
+        </div>
+        <div class="space-y-1">
+          <h4 class="font-headline-md text-base font-bold text-white">Análisis &amp; Mentoring de Vida</h4>
+          <p class="font-body-md text-sm text-on-surface-variant">Análisis del Comportamiento y Life Mentoring.</p>
+        </div>
+      </div>
+
+      <!-- 5. Emprendimiento y Negocios -->
+      <div class="card-surface p-5 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 group flex items-start gap-4">
+        <div class="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors shrink-0">
+          <span class="material-symbols-outlined text-2xl block">storefront</span>
+        </div>
+        <div class="space-y-1">
+          <h4 class="font-headline-md text-base font-bold text-white">Emprendimiento &amp; Negocios</h4>
+          <p class="font-body-md text-sm text-on-surface-variant">Mentoring estratégico para emprendedores.</p>
+        </div>
+      </div>
+
+      <!-- 6. Bienestar Integral -->
+      <div class="card-surface p-5 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 group flex items-start gap-4">
+        <div class="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors shrink-0">
+          <span class="material-symbols-outlined text-2xl block">spa</span>
+        </div>
+        <div class="space-y-1">
+          <h4 class="font-headline-md text-base font-bold text-white">Bienestar Integral</h4>
+          <p class="font-body-md text-sm text-on-surface-variant">Biohacking, Salud Holística y Entrenamiento.</p>
+        </div>
+      </div>
+
+      <!-- 7. Liderazgo y Comunicación -->
+      <div class="card-surface p-5 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 group flex items-start gap-4">
+        <div class="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors shrink-0">
+          <span class="material-symbols-outlined text-2xl block">record_voice_over</span>
+        </div>
+        <div class="space-y-1">
+          <h4 class="font-headline-md text-base font-bold text-white">Liderazgo &amp; Oratoria</h4>
+          <p class="font-body-md text-sm text-on-surface-variant">Comunicación Efectiva y Desarrollo de Liderazgo.</p>
+        </div>
+      </div>
+
+      <!-- 8. Alto Rendimiento -->
+      <div class="card-surface p-5 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 group flex items-start gap-4">
+        <div class="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors shrink-0">
+          <span class="material-symbols-outlined text-2xl block">speed</span>
+        </div>
+        <div class="space-y-1">
+          <h4 class="font-headline-md text-base font-bold text-white">Alto Rendimiento</h4>
+          <p class="font-body-md text-sm text-on-surface-variant">Mentalidad, Productividad y Optimización Personal.</p>
+        </div>
+      </div>
+
+      <!-- 9. Orientación Vocacional -->
+      <div class="card-surface p-5 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 group flex items-start gap-4 sm:col-span-2 lg:col-span-1">
+        <div class="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors shrink-0">
+          <span class="material-symbols-outlined text-2xl block">explore</span>
+        </div>
+        <div class="space-y-1">
+          <h4 class="font-headline-md text-base font-bold text-white">Orientación Vocacional</h4>
+          <p class="font-body-md text-sm text-on-surface-variant">Desarrollo de Carrera y Enfoque Profesional.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Especialidades Claves -->
+<section class="py-stack-lg max-w-container-max mx-auto px-margin-mobile" id="servicios">
+<div class="grid md:grid-cols-2 gap-gutter items-center">
+<div class="space-y-stack-md">
+<div class="relative inline-block">
+<h2 class="font-headline-lg text-headline-lg uppercase italic border-b-4 border-primary pb-2">Especialidades claves</h2>
+</div>
+<div class="card-surface p-gutter rounded-xl shadow-lg glow-hover transition-all">
+<ul class="space-y-stack-sm">
+<li class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<span class="font-body-md">Productividad personal.</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<span class="font-body-md">Pasión auténtica.</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<span class="font-body-md">Bienestar mental.</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<span class="font-body-md">Bienestar y emprendimiento.</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<span class="font-body-md">Autoestima - empoderamiento creciente.</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<span class="font-body-md">Libertad emocional.</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<span class="font-body-md">Relaciones saludables.</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<span class="font-body-md">Realización personal.</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<span class="font-body-md">Journey of life.</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+<img class="relative rounded-2xl w-full h-[500px] object-cover  duration-700" data-alt="A professional portrait of a man with glasses and a black turtleneck, looking confident and approachable. The lighting is moody and low-key with a warm amber glow from behind, creating a halo effect against a dark, textured background. The image exudes professional wisdom and clinical psychological authority." src="/02.png" loading="lazy" decoding="async">
+</div>
+</div>
+</section>
+
+<!-- ¿En qué momento podemos ayudarte? -->
+<section class="bg-surface-container-low py-stack-lg">
+  <div class="max-w-container-max mx-auto px-margin-mobile">
+    
+    <!-- Encabezado de Sección -->
+    <div class="text-center mb-stack-lg">
+      <h2 class="font-headline-lg text-headline-lg mb-2 uppercase tracking-tight text-white">¿En qué momento podemos ayudarte?</h2>
+      <div class="h-1 w-24 bg-primary mx-auto rounded-full"></div>
+    </div>
+
+    <!-- Grid de Tarjetas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+      
+      <!-- Card 1: Bienestar Emocional -->
+      <div class="card-surface p-gutter rounded-xl space-y-4 hover:border-primary/50 transition-colors border border-white/5">
+        <div class="flex items-center gap-3">
+          <div class="p-2.5 rounded-lg bg-primary/10 text-primary-fixed">
+            <span class="material-symbols-outlined text-2xl block">favorite</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary-fixed">Bienestar emocional</h3>
+        </div>
+        
+        <ul class="text-on-surface-variant space-y-2.5">
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary/70 text-lg shrink-0 mt-0.5">check_circle</span>
+            <span>Ansiedad, estrés y desmotivación</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary/70 text-lg shrink-0 mt-0.5">check_circle</span>
+            <span>Tristeza persistente</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary/70 text-lg shrink-0 mt-0.5">check_circle</span>
+            <span>Baja autoestima</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary/70 text-lg shrink-0 mt-0.5">check_circle</span>
+            <span>Vacío emocional</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Card 2: Relaciones -->
+      <div class="card-surface p-gutter rounded-xl space-y-4 hover:border-primary/50 transition-colors border border-white/5">
+        <div class="flex items-center gap-3">
+          <div class="p-2.5 rounded-lg bg-primary/10 text-primary-fixed">
+            <span class="material-symbols-outlined text-2xl block">diversity_3</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary-fixed">Relaciones</h3>
+        </div>
+
+        <ul class="text-on-surface-variant space-y-2.5">
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary/70 text-lg shrink-0 mt-0.5">check_circle</span>
+            <span>Dificultades para relacionarte</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary/70 text-lg shrink-0 mt-0.5">check_circle</span>
+            <span>Dependencia emocional</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary/70 text-lg shrink-0 mt-0.5">check_circle</span>
+            <span>Conflictos personales</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Card 3: Proyecto de Vida -->
+      <div class="card-surface p-gutter rounded-xl space-y-4 hover:border-primary/50 transition-colors border border-white/5">
+        <div class="flex items-center gap-3">
+          <div class="p-2.5 rounded-lg bg-primary/10 text-primary-fixed">
+            <span class="material-symbols-outlined text-2xl block">explore</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary-fixed">Proyecto de vida</h3>
+        </div>
+
+        <ul class="text-on-surface-variant space-y-2.5">
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary/70 text-lg shrink-0 mt-0.5">check_circle</span>
+            <span>Falta de propósito</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary/70 text-lg shrink-0 mt-0.5">check_circle</span>
+            <span>Estancamiento</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary/70 text-lg shrink-0 mt-0.5">check_circle</span>
+            <span>Inseguridad</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary/70 text-lg shrink-0 mt-0.5">check_circle</span>
+            <span>Desarrollo profesional</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Card 4: Desarrollo Personal -->
+      <div class="card-surface p-gutter rounded-xl space-y-4 hover:border-primary/50 transition-colors border border-white/5">
+        <div class="flex items-center gap-3">
+          <div class="p-2.5 rounded-lg bg-primary/10 text-primary-fixed">
+            <span class="material-symbols-outlined text-2xl block">psychology</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary-fixed">Desarrollo personal</h3>
+        </div>
+
+        <ul class="text-on-surface-variant space-y-2.5">
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary/70 text-lg shrink-0 mt-0.5">check_circle</span>
+            <span>Productividad</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary/70 text-lg shrink-0 mt-0.5">check_circle</span>
+            <span>Comunicación</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary/70 text-lg shrink-0 mt-0.5">check_circle</span>
+            <span>Liderazgo personal</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="material-symbols-outlined text-primary/70 text-lg shrink-0 mt-0.5">check_circle</span>
+            <span>Hábitos saludables</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Detailed Help Sections -->
+<section class="py-stack-lg max-w-4xl lg:max-w-2xl mx-auto px-margin-mobile space-y-gutter">
+  <div class="bg-primary text-on-primary p-4 rounded-xl text-center font-headline-md md:font-bold">
+    Ayudamos a personas que están atravesando momentos de su vida como:
+  </div>
+
+  
+  <!-- Bento style journey details -->
+  <div class="grid gap-gutter">
+    
+    <!-- Tarjeta 1 -->
+    <div class="card-surface p-5 sm:p-8 rounded-xl border-l-4 border-l-secondary">
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-4">
+        1. Salud mental y Emocional (Cómo me siento por dentro)
+      </h3>
+      <ul class="list-disc list-outside pl-5 space-y-2.5 text-on-surface-variant font-body-md leading-relaxed">
+        <li>Me siento con depresión, ansiedad y mucho estrés.</li>
+        <li>Tengo pensamientos deprimentes, sobrepienso todo y me cuesta concentrarme.</li>
+        <li>Siento tristeza profunda, vacío y desesperanza.</li>
+        <li>Estoy agotado física, emocional y mentalmente casi siempre.</li>
+        <li>Tengo ataques de nervios, taquicardia, sudoración, temblores y agitación.</li>
+        <li>He perdido el interés en las actividades cotidianas.</li>
+        <li>Me desmotivo muy rápido, soy indeciso y me frustro fácilmente.</li>
+        <li>Me ahogo rápido en mis problemas y siento que todo me supera.</li>
+      </ul>
+    </div>
+
+    <!-- Tarjeta 2 -->
+    <div class="card-surface p-5 sm:p-8 rounded-xl border-l-4 border-l-primary">
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-4">
+        2. Autoestima, Identidad y Valor Propio (Cómo me veo a mí mismo)
+      </h3>
+      <ul class="list-disc list-outside pl-5 space-y-2.5 text-on-surface-variant font-body-md leading-relaxed">
+        <li>No sé realmente quién soy, qué puedo ofrecer ni cuál es mi verdadero valor auténtico.</li>
+        <li>Siento que no soy lo suficientemente bueno o merecedor de grandes cosas.</li>
+        <li>Me cuesta mucho apreciarme y aceptarme tal como soy.</li>
+        <li>Tengo muchas inseguridades y dudo constantemente de mí.</li>
+        <li>No me gusta mi aspecto físico, tengo problemas con mi alimentación o mi peso.</li>
+        <li>Me cuesta conectar mi masculinidad o feminidad con la imagen que proyecto.</li>
+        <li>Me afecta demasiado lo que otros piensen de mí o sus opiniones.</li>
+        <li>Me siento como un “bicho raro” que no encaja en la sociedad y tengo miedo a arriesgarme.</li>
+      </ul>
+    </div>
+
+    <!-- Tarjeta 3 -->
+    <div class="card-surface p-5 sm:p-8 rounded-xl border-l-4 border-l-secondary-container">
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-4">
+        3. Relaciones Sociales y Afectivas (Cómo me relaciono con los demás)
+      </h3>
+      <ul class="list-disc list-outside pl-5 space-y-2.5 text-on-surface-variant font-body-md leading-relaxed">
+        <li>Vivo en aislamiento social, evito el contacto y me cuesta mucho hacer amistades.</li>
+        <li>Me siento solo y desconectado de las personas.</li>
+        <li>Me cuesta confiar en otros y muchas veces me guío por lo que dicen.</li>
+        <li>He tenido malas experiencias sentimentales, me han lastimado y me cuesta superar a alguien.</li>
+        <li>Temo que nadie me admire, quiera o ame de verdad.</li>
+        <li>Me siento incomprendido por mi familia o círculo cercano.</li>
+        <li>Me cuesta pedir ayuda y expresar lo que realmente siento.</li>
+
+      </ul>
+    </div>
+
+    <!-- Tarjeta 4 -->
+    <div class="card-surface p-5 sm:p-8 rounded-xl border-l-4 border-l-secondary-container">
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-4">
+        4. Propósito, Productividad y Vida Práctica (Hacia dónde voy y qué logro)
+      </h3>
+      <ul class="list-disc list-outside pl-5 space-y-2.5 text-on-surface-variant font-body-md leading-relaxed">
+        <li>Siento que no tengo dirección ni propósito claro en mi vida.</li>
+        <li>Tengo dificultades en lo profesional, académico y laboral.</li>
+        <li>Me siento estancado, frustrado y poco productivo.</li>
+        <li>Tengo problemas económicos y no tengo control sobre mis finanzas.</li>
+        <li>No estoy viviendo mi propia vida, me pierdo en comparaciones y creencias limitantes.</li>
+        <li>Siempre estoy buscando “algo” pero no sé qué es.</li>
+        <li>Me siento limitado, con miedo al futuro y me cuesta tomar acción para lograr lo que quiero.</li>
+        <li>Nada me motiva realmente y siento que me falta abundancia, éxito y realización.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+<!-- Modelo de Acompañamiento -->
+<section class="py-stack-lg bg-surface-container-highest relative overflow-hidden" id="modelo">
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile text-center">
+<div class="bg-primary text-on-primary inline-block px-8 py-4 rounded-xl font-headline-md font-extrabold tracking-wide border-2 border-primary-fixed shadow-md mb-stack-lg">
+    Nuestro modelo de acompañamiento
+</div>
+<div class="flex flex-col items-center gap-stack-sm">
+<h4 class="font-label-mono text-label-mono uppercase tracking-[0.3em] text-on-surface-variant">Nuestro proceso</h4>
+<div class="flex flex-col items-center gap-4 mt-gutter">
+<div class="card-surface px-8 py-4 rounded-full font-headline-md border-primary/30">Comprender</div>
+<span class="material-symbols-outlined text-primary text-3xl float-animation">keyboard_double_arrow_down</span>
+<div class="card-surface px-8 py-4 rounded-full font-headline-md border-primary/30">Sanar</div>
+<span class="material-symbols-outlined text-primary text-3xl float-animation">keyboard_double_arrow_down</span>
+<div class="card-surface px-8 py-4 rounded-full font-headline-md border-primary/30">Fortalecer</div>
+<span class="material-symbols-outlined text-primary text-3xl float-animation">keyboard_double_arrow_down</span>
+<div class="card-surface px-8 py-4 rounded-full font-headline-md border-primary/30">Desarrollar</div>
+<span class="material-symbols-outlined text-primary text-3xl float-animation">keyboard_double_arrow_down</span>
+<div class="bg-primary text-on-primary px-10 py-5 rounded-full font-headline-lg shadow-[0_0_20px_rgba(191,227,83,0.4)]">Crecimiento</div>
+</div>
+<p class="max-w-xl mx-auto mt-stack-md font-body-md text-on-surface-variant italic">
+                        Cada persona avanza a su propio ritmo, con un acompañamiento personalizado y basado en evidencia.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Espacios Especializados -->
+<section class="py-stack-lg max-w-container-max mx-auto px-margin-mobile" id="espacios">
+<div class="grid md:grid-cols-2 gap-gutter">
+<div class="relative overflow-hidden rounded-2xl h-full min-h-[400px]">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="A serene, smiling woman in a dark professional blazer looking upwards towards a soft source of light. The image has a deep black background and a sophisticated editorial aesthetic, evoking feelings of relief, mental clarity, and internal peace. High contrast and premium finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM71ckIDYnQDlHvdiBFPQUTXNf2yOAdTppqol7mzLu8MmSdetIQPlN_iBcG36mAuPJQ7AJTnuYMvlQVnDFqLDwGDOBET0LvMHV7dfZXjd4PlFOh9n8xP3Zsh9Q4BuG8fCc82lettvH7qXiC0NZ2MuYtWHRqfl-eTvFGg2vlRP3VHz-w-5u5-w84isSTDlzMnNlsoMBqeQiERMbdPoT0cNnvVqettB4GebBfpNAGi-SYwG62Hek1IET" loading="lazy" decoding="async">
+<div class="absolute bottom-10 left-10 right-10 bg-black/80 backdrop-blur-md p-6 border border-primary/20 rounded-lg text-center">
+<h3 class="font-headline-md text-headline-md text-on-surface uppercase tracking-widest">ESPACIOS ESPECIALIZADOS</h3>
+</div>
+</div>
+
+
+<div class="card-surface p-gutter rounded-2xl shadow-xl space-y-gutter border border-white/5">
+  <ul class="space-y-4">
+    
+    <!-- Apoyo emocional -->
+    <li class="flex items-center gap-4">
+      <div class="p-2 rounded-lg bg-primary-container/10 text-primary-container shrink-0">
+        <span class="material-symbols-outlined text-xl block">favorite</span>
+      </div>
+      <span class="font-body-md text-on-surface-variant font-medium">Espacio de apoyo emocional.</span>
+    </li>
+
+    <!-- Proyecto personal -->
+    <li class="flex items-center gap-4">
+      <div class="p-2 rounded-lg bg-primary-container/10 text-primary-container shrink-0">
+        <span class="material-symbols-outlined text-xl block">rocket_launch</span>
+      </div>
+      <span class="font-body-md text-on-surface-variant font-medium">Espacio mi proyecto personal.</span>
+    </li>
+
+    <!-- Fortalecimiento personal -->
+    <li class="flex items-center gap-4">
+      <div class="p-2 rounded-lg bg-primary-container/10 text-primary-container shrink-0">
+        <span class="material-symbols-outlined text-xl block">fitness_center</span>
+      </div>
+      <span class="font-body-md text-on-surface-variant font-medium">Espacio fortalecimiento personal.</span>
+    </li>
+
+    <!-- Comunicación & oratoria -->
+    <li class="flex items-center gap-4">
+      <div class="p-2 rounded-lg bg-primary-container/10 text-primary-container shrink-0">
+        <span class="material-symbols-outlined text-xl block">record_voice_over</span>
+      </div>
+      <span class="font-body-md text-on-surface-variant font-medium">Espacio de comunicación &amp; oratoria.</span>
+    </li>
+
+    <!-- Habilidades sociales -->
+    <li class="flex items-center gap-4">
+      <div class="p-2 rounded-lg bg-primary-container/10 text-primary-container shrink-0">
+        <span class="material-symbols-outlined text-xl block">groups</span>
+      </div>
+      <span class="font-body-md text-on-surface-variant font-medium">Espacio de habilidades sociales.</span>
+    </li>
+
+    <!-- Conexión interior -->
+    <li class="flex items-center gap-4">
+      <div class="p-2 rounded-lg bg-primary-container/10 text-primary-container shrink-0">
+        <span class="material-symbols-outlined text-xl block">self_improvement</span>
+      </div>
+      <span class="font-body-md text-on-surface-variant font-medium">Espacio de conexión interior (relajación, meditación, tranquilidad y amor).</span>
+    </li>
+
+  </ul>
+<div class="pt-stack-sm border-t border-outline-variant/30">
+<p class="font-body-lg text-body-lg text-primary underline decoration-2 underline-offset-8">
+                            Cada espacio está diseñado que puedas sacar lo mejor de ti.
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Que tenemos para ti & CTA Final -->
+<section class="py-stack-lg px-margin-mobile relative" id="contacto">
+  <div class="max-w-4xl mx-auto space-y-stack-lg">
+    
+    <!-- Rectángulo de texto centrado con tamaño moderado -->
+    <div class="bg-primary text-on-primary text-center mx-auto px-8 py-3.5 rounded-xl font-headline-md text-xl sm:text-2xl font-bold tracking-wide shadow-md w-fit">
+      ¿Qué tenemos para ti?
+    </div>
+
+<div class="grid md:grid-cols-2 gap-gutter">
+  
+  <!-- Tarjeta 1: Servicios / Programas -->
+  <div class="card-surface p-gutter rounded-xl border border-white/5 shadow-md">
+    <ul class="text-on-surface-variant space-y-3.5 font-body-md">
+      
+      <li class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+        <span>Tenemos programas - talleres</span>
+      </li>
+
+      <li class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+        <span>Sesiones de terapias especializadas</span>
+      </li>
+
+      <li class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+        <span>Charlas y asesorías grupales e individuales</span>
+      </li>
+
+      <li class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+        <span>Seguimiento de progreso</span>
+      </li>
+
+      <li class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+        <span>Consultas psicológicas</span>
+      </li>
+
+      <li class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+        <span>Citas de psicología y psicoterapia</span>
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- Tarjeta 2: Logros compartidos -->
+  <div class="card-surface p-gutter rounded-xl border border-white/5 shadow-md">
+    <h4 class="font-headline-md text-on-surface mb-5 font-bold tracking-tight">Logros compartidos</h4>
+    
+    <ul class="text-on-surface-variant space-y-3.5 font-body-md">
+      
+      <li class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+        <span>Comprenderte mejor.</span>
+      </li>
+
+      <li class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+        <span>Fortalecer tu autoestima.</span>
+      </li>
+
+      <li class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+        <span>Gestionar tus emociones.</span>
+      </li>
+
+      <li class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+        <span>Construir relaciones saludables.</span>
+      </li>
+
+      <li class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+        <span>Recuperar claridad y propósito.</span>
+      </li>
+
+    </ul>
+  </div>
+
+</div>
+<!-- Final CTA Box -->
+<div class="relative mt-stack-lg py-12 md:py-20 px-6 md:px-10 rounded-3xl overflow-hidden group text-center flex flex-col items-center justify-center">
+  <div class="absolute inset-0 z-0">
+    <img class="w-full h-full object-cover opacity-25" data-alt="An ornate, glowing golden treasure chest overflowing with luminous gems and radiating a mystical light against a dark, cosmic background. Golden trophies float in the void, representing achievement and personal transformation. The visual is rich, high-value, and suggests the 'hidden treasure' of the human psyche." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDauBv_P-17BjxLVDiqN7TeQ9gjBIIhRWwo0pk3yj0KEHF-BtMvTmwyE4PDvYA3vtntrfcyDLuTLUNgUEebJMW5NNMyyilnamhWYAEGDjCLPD1z2KikQWtymmb3WLkw8YXBHiWjCB9l2rsu_oz6fxDpoV_KgqAT7nL_cfTn2t6Nz881VhnkgbOrEwa9raetZn-u-2tWtrYd3OOdKWKzzJytmP7G9olIBPqHr0zrB9aaLvuv_GQ8maiA" loading="lazy" decoding="async">
+    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors"></div>
+  </div>
+  
+  <div class="relative z-10 max-w-xl mx-auto space-y-6 flex flex-col items-center text-center">
+<div class="relative z-10 max-w-xl mx-auto space-y-6 flex flex-col items-center text-center">
+    <div class="bg-secondary-fixed text-on-secondary-fixed-variant inline-block px-4 py-1.5 rounded-full uppercase font-label-mono text-label-mono font-semibold tracking-wider mb-2">Empieza hoy</div>
+    <h2 class="text-2xl sm:text-3xl md:text-headline-lg font-bold italic text-on-surface leading-snug tracking-tight">"Cada transformación comienza con una conversación"</h2>
+    <p class="font-body-lg text-on-surface-variant">Agenda una primera sesión de orientación y descubre cuál es el mejor camino para ti.</p>
+<button class="bg-primary text-on-primary w-full md:w-auto px-6 py-3 md:px-12 md:py-5 rounded-full font-display-xl text-lg md:text-2xl hover:scale-105 transition-transform shadow-2xl active:scale-95">
+  AGENDAR
+</button>
+  </div>
+</div>
+</section>
+</main>
+
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-stack-lg border-t border-outline-variant/10">
+  <div class="flex flex-col md:flex-col justify-center items-center gap-stack-md px-margin-mobile md:px-gutter max-w-container-max mx-auto text-center">
+    
+    <div class="space-y-2 text-center">
+      <p class="font-headline-lg text-headline-lg text-primary uppercase"></p>
+
+      <p class="font-body-md text-body-md text-on-surface-variant">
+        © <span class="text-on-surface-variant/60"><span id="current-year"></span> Rubén Tineo </span>
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+
+
+<!-- <div class="flex flex-wrap justify-center gap-gutter">
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-secondary-fixed transition-all" href="#sobre-mi">Sobre mí</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-secondary-fixed transition-all" href="#servicios">Servicios</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-secondary-fixed transition-all" href="#modelo">Modelo</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-secondary-fixed transition-all" href="#espacios">Espacios</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-secondary-fixed transition-all" href="#contacto">Contacto</a>
+</div> -->
+
+
+<script>
+
+  let lastScrollY = window.scrollY;
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+  const currentScrollY = window.scrollY;
+
+  // Si se hace scroll hacia abajo y no estamos al tope, oculta el nav
+  if (currentScrollY > lastScrollY && currentScrollY > 80) {
+    header.classList.add('-translate-y-full');
+  } else {
+    // Si se hace scroll hacia arriba, muestra el nav
+    header.classList.remove('-translate-y-full');
+  }
+
+  lastScrollY = currentScrollY;
+});
+
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    function toggleMenu() {
+        const isOpen = mobileMenu.classList.contains('open');
+        if (isOpen) {
+            mobileMenu.classList.remove('open');
+            mobileMenu.classList.add('closed');
+            mobileMenuOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        } else {
+            mobileMenu.classList.remove('closed');
+            mobileMenu.classList.add('open');
+            mobileMenuOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+    closeBtn.addEventListener('click', toggleMenu);
+    mobileMenuOverlay.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking links
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', toggleMenu);
+    });
+</script>
+</body></html>

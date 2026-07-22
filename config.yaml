@@ -1,0 +1,17 @@
+backend:
+  name: git-gateway
+  branch: main # O 'master', asegúrate que coincida con tu rama en GitHub
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "inicio"
+    label: "Página de Inicio"
+    files:
+      - file: "index.html"
+        label: "Textos Principales"
+        name: "home_texts"
+        fields:
+          - {label: "Nombre", name: "nombre", widget: "string", default: "Rubén Tineo"}
+          - {label: "Ubicación", name: "ubicacion", widget: "string", default: "PERÚ / LIMA"}
